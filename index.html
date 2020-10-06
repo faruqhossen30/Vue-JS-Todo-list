@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue JS</title>
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div class="container w-50 ">
+            <div class="text-center my-5">
+                <h1>Daily Todo List</h1>
+                <p>Insert your daily task</p>
+            </div>
+            <div class="my-3">
+                <form @submit="itemSubmit">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                        </div>
+                        <input v-model="addItem" type="text" class="form-control">
+                        <button class="btn btn-primary btn-sm ml-1">Add Item</button>
+                    </div>
+                </form>
+            </div>
+            <div>
+                <ul class="list-group">
+                    <li class="list-group-item" v-for="(item, index) in items" :key="index">
+                        <strong>{{index + 1}}.</strong>
+                        {{item}}
+                        <span @click="removeItem(index)" class="float-right text-danger">
+                            <i class="fa fa-trash"></i>
+                        </span>
+                    </li>
+                    
+                    
+                  </ul>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="app.js"></script>
+</body>
+</html>
